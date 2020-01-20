@@ -68,7 +68,7 @@ let proxy = proxies[x]
 var input_hash = location.hash;
 var hash = input_hash.slice(1);
 var hash = hash.replace('ipfs:','');
-var url = proxy + "/ipfs/" + hash;
+var url = proxy + hash;
 console.log("url is equal to " + url);
 window.location.href = url
 }
