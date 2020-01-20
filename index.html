@@ -76,7 +76,8 @@ window.location.href = url
 function formdata() 
 {
     var data_short = document.getElementById("short").value;
-    if (true) {
+    var data = document.getElementById("url").value;
+    if (data_short !== "") {
     document.writeln("Your IPFS Meta Link Is: " + window.location.href + "#ipfs:" + data_short);
     } else {
     var data = document.getElementById("url").value;
