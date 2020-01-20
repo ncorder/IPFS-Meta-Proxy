@@ -1,0 +1,106 @@
+<style>
+body {
+	background-image: url("https://coinsh.red/u/lines_2.svg.png");
+        background-repeat:no-repeat;
+       background-size:cover;
+} 
+
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+</style>
+
+		<div class="header">
+			<h1 class="logo">IPFS Meta Proxy</h1>
+		</div>
+
+<script>
+
+function redirect2proxy(input)
+{
+console.log("redirect2proxy ran with input: " + input);
+// Set IPFS Proxies
+let proxies = [
+    "http://coinsh.red",
+	"https://ipfs.io/ipfs/",
+	"https://gateway.ipfs.io/ipfs/",
+	"https://ipfs.infura.io/ipfs/",
+	"https://rx14.co.uk/ipfs/",
+	"https://ninetailed.ninja/ipfs/",
+	"https://ipfs.globalupload.io/",
+	"https://ipfs.jes.xxx/ipfs/",
+	"https://10.via0.com/ipfs/",
+	"https://ipfs.eternum.io/ipfs/",
+	"https://hardbin.com/ipfs/",
+	"https://ipfs.wa.hle.rs/ipfs/",
+	"https://gateway.blocksec.com/ipfs/",
+	"https://ipfs.renehsz.com/ipfs/",
+	"htytps://cloudflare-ipfs.com/ipfs/",
+	"https://ipns.co/",
+	"https://ipfs.mrh.io/ipfs/",
+	"https://gateway.originprotocol.com/ipfs/",
+	"https://gateway.pinata.cloud/ipfs/",
+	"https://ipfs.doolta.com/ipfs/",
+	"https://ipfs.sloppyta.co/ipfs/",
+	"https://ipfs.busy.org/ipfs/",
+	"https://ipfs.greyh.at/ipfs/",
+	"https://gateway.serph.network/ipfs/",
+	"https://jorropo.ovh/ipfs/",
+	"https://gateway.temporal.cloud/ipfs/",
+	"https://ipfs.fooock.com/ipfs/",
+	"https://cdn.cwinfo.net/ipfs/",
+	"https://ipfs.privacytools.io/ipfs/",
+	"https://ipfs.jeroendeneef.com/ipfs/",
+	"https://permaweb.io/ipfs/",
+	"https://ipfs.stibarc.gq/ipfs/",
+	"https://ipfs.best-practice.se/ipfs/",
+	"https://ipfs.2read.net/ipfs/",
+	"https://storjipfs-gateway.com/ipfs/"
+]
+var x = Math.floor((Math.random() * proxies.length) + 0);
+let proxy = proxies[x]
+
+var input_hash = location.hash;
+var hash = input_hash.slice(1);
+var hash = hash.replace('ipfs:','');
+var url = proxy + "/ipfs/" + hash;
+console.log("url is equal to " + url);
+window.location.href = url
+}
+
+function formdata() 
+{
+    var data_short = document.getElementById("short").value;
+    if (true) {
+    document.writeln("Your IPFS Meta Link Is: " + window.location.href + "#ipfs:" + data_short);
+    } else {
+    var data = document.getElementById("url").value;
+    var data = "ipfs:" + data;    
+    redirect2proxy(data)
+}
+}
+
+// Proxy Redirect
+var input_hash = location.hash;
+var hash2 = input_hash[1];
+if (hash2 == null) {
+    console.log("input_has = null or this is broken and it equals: " + hash2 + " or " + input_hash);
+} else if (hash2 == "i") {
+    console.log("input_hash is equal to " + input_hash);
+    redirect2proxy(input_hash)
+}
+
+</script>
+
+<div align="center">
+<form><br>
+ View/Download IPFS file: <input type="text" id="url" placeholder="" /><br><br>
+ Create Meta Link: <input type="text" id="short" placeholder="" /><br><br>
+<input type="submit" value="Submit" onclick="formdata()"/><br>
+</form>
+</div>
